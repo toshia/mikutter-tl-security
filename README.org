@@ -16,10 +16,9 @@ TLセキュリティ
 
 ** 例
    - plugin/
-  - tl_security
-    - README.org
-    - tl_security.rb
-
+     - tl_security/
+       - README.org
+       - tl_security.rb
 * 使いかた
   インストールしたら動き出します。ユーザがミュートされた時、又は解除された時に、システムメッセージでお知らせします。
 
@@ -39,7 +38,7 @@ TLセキュリティ
     この回数だけtl_security_update_section秒間の間にツイートがあれば一定時間ミュート
     デフォルトは5回
 
-*** tl_security_mute_seconds]
+*** tl_security_mute_seconds
     一時ミュートする時間(秒)
     デフォルトは1800秒(30分)
 
