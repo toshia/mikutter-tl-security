@@ -11,8 +11,11 @@ Plugin.create(:tl_security) do
   @update_count = Hash.new{ |h, k| h[k] = 0 } # user_id => count
 
   filter_show_filter do |messages|
-    messages.each &method(:regist)
     [messages.select{ |m| !@muted_users.include?(m.user.id) }]
+  end
+
+  onupdate do |service, messages|
+    messages.each &method(:regist)
   end
 
   class << self
