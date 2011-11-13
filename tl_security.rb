@@ -10,6 +10,17 @@ Plugin.create(:tl_security) do
   @muted_users = Set.new        # user_id
   @update_count = Hash.new{ |h, k| h[k] = 0 } # user_id => count
 
+  settings("ファイアウォール") do
+    settings("連投非表示機能") do
+      adjustment("連投と判断する投稿の間隔（秒数）", :tl_security_update_section, 1, 10000).
+        tooltip "この秒数の間に、下で設定された回数ツイートしたユーザを、一定時間ミュートします"
+      adjustment("連投と判断する投稿の回数", :tl_security_update_limit, 1, 10000).
+        tooltip "この回数ツイートしたユーザを一定時間ミュートします"
+      adjustment("ミュートする秒数", :tl_security_mute_seconds, 1, 10000).
+        tooltip "上記の条件に当てはまったユーザを、この秒数だけミュートします。mikutterを再起動すると設定にかかわらずミュートは解除されます"
+    end
+  end
+
   filter_show_filter do |messages|
     [messages.select{ |m| !@muted_users.include?(m.user.id) }]
   end
