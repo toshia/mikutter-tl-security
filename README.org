@@ -23,30 +23,7 @@ TLセキュリティ
   インストールしたら動き出します。ユーザがミュートされた時、又は解除された時に、システムメッセージでお知らせします。
 
 ** 設定
-   設定のUIがなくてかなりアレです。
-   以下の設定ができます。設定方法は、Alt+xをおしてから、
-   | UserConfig[:設定名] = 値
-   と入力して投稿ボタンをおしてください。
-   また、現在の設定はAlt+xのあとで以下のように入力すると確認できます。
-   | UserConfig[:設定名]
-
-*** tl_security_update_section
-   この秒数の間にtl_security_update_limit回ツイートがあれば一定時間ミュート。
-   デフォルトは1秒
-
-*** tl_security_update_limit
-    この回数だけtl_security_update_section秒間の間にツイートがあれば一定時間ミュート
-    デフォルトは5回
-
-*** tl_security_mute_seconds
-    一時ミュートする時間(秒)
-    デフォルトは1800秒(30分)
-
-*** 例
-    一応、例としてデフォルト設定に戻すためのコードを書いておきます。
-    | UserConfig[:tl_security_update_section] = 1
-    | UserConfig[:tl_security_update_limit] = 5
-    | UserConfig[:tl_security_mute_seconds] = 1800
+   設定画面に「ファイアウォール」というタブが追加されるはずです。その中の数値を触ると、ミュートを開始する条件や、ミュート時間を設定できます。
 
 * 注意
   名前からわかるとおり、ワクチンソフトとか、ファイアウォールみたいな、セキュリティソフトをイメージしています（そんな大層なものではないが）。
